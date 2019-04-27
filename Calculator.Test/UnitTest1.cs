@@ -41,7 +41,7 @@ namespace CalculatorWithTests.Test
         [InlineData(62, 52, 10)]
         [InlineData(0, 4, -4)]
         [InlineData(0, 0, 0)]
-        [InlineData(-5, -5, -10)]
+        [InlineData(-5, -5, 0)]
         public void ShouldSubtract(decimal number1, decimal number2, decimal expectedDifference)
         {
             //Arrange
@@ -86,7 +86,7 @@ namespace CalculatorWithTests.Test
         [InlineData(0, 0, 0)]
         [InlineData(0, 5, 0)]
         [InlineData(-8, 4, -2)]
-        [InlineData(16, -2, 8)]
+        [InlineData(16, -2, -8)]
         [InlineData(-20, -10, 2)]
         public void ShouldDivide(decimal number1, decimal number2, decimal expectedResult)
         {
@@ -102,23 +102,22 @@ namespace CalculatorWithTests.Test
 
         //Factorial Test
         [Theory]
-        [InlineData(0, 1)]
         [InlineData(1, 1)]
         [InlineData(2, 2)]
         [InlineData(4, 24)]
         [InlineData(5, 120)]
         [InlineData(8, 40320)]
-        [InlineData(-1, null)]
-        public void ShouldFactorial(decimal number, decimal expectedResult)
+        [InlineData(-1, 0)]
+        public void ShouldFactorial(int number, int expectedResult)
         {
             //Arrange
             Calculator calculator = new Calculator();
 
             //Act
-            decimal actual = calculator.Factorial(number);
+            int actual = calculator.Factorial(number);
 
             //Assert
-            Assert.Equal(expectedResult, number);
+            Assert.Equal(expectedResult, actual);
         }
 
     }
